@@ -18,8 +18,6 @@ const Search = ({ size = 24 }) => <svg width={size} height={size} viewBox="0 0 2
 const { useState, useMemo } = React;
 
 const EquestrianResources = () => {
-  const [showDisclaimer, setShowDisclaimer] = useState(false);
-  
   const resources = [
   {"id":1,"name":"Steve Wiberg Horseshoeing","category":"Farrier","city":"Woodside","phone":"(650) 854-3162","email":"","website":"farrierstevewiberg.com","description":"63 years of specialized equine expertise, delivering prompt and reliable hoof care. Serving all Bay Area counties.","lat":37.4299,"lng":-122.2538},
   {"id":2,"name":"Bitar Farrier Services","category":"Farrier","city":"San Francisco","phone":"","email":"","website":"","description":"Professional farrier services in San Francisco","lat":37.7749,"lng":-122.4194},
@@ -121,7 +119,9 @@ const EquestrianResources = () => {
   {"name":"Molly Brown","category":"Farrier","city":"Crockett","phone":"415-231-4244","email":"fiveheartshoofcare@gmail.com","website":"","description":"Advanced Student Practitioner. Natural-barefoot trimmer","id":100,"lat":37.7749,"lng":-122.4194},
   {"name":"Brian Renner, DC","category":"Horse Chiropractor","city":"SF East Bay","phone":"714-989-6473","email":"","website":"https://heartfulhealth.net/","description":"I spend time in California and Florida. Depending on my availability I can see your animals and you under local laws.","id":101,"lat":37.7749,"lng":-122.4194},
   {"name":"Nicky Moore, DVM","category":"Veterinarian","city":"Brentwood","phone":"925-672-8700","email":"","website":"","description":"","id":102,"lat":37.7749,"lng":-122.4194},
-  {"name":"Jennifer Sabot","category":"Veterinarian","city":"Sacramento","phone":"925-323-2680","email":"","website":"","description":"Equine Dentistry","id":103,"lat":37.7749,"lng":-122.4194}
+  {"name":"Jennifer Sabot","category":"Veterinarian","city":"Sacramento","phone":"925-323-2680","email":"","website":"","description":"Equine Dentistry","id":103,"lat":37.7749,"lng":-122.4194},
+  {"id":104,"name":"Stardust Sanctuary Equine Adventures - Training","category":"Trainer","street":"1100 Russelmann Park Rd.","city":"Clayton","state":"CA","zip":"94517","phone":"925-451-4058","email":"Laurie@StardustSanctuaryCA.org","website":"https://www.stardustsanctuaryca.org/equineprograms","description":"Laurie is the founder and owner of Team Horse Training in Clayton, California. She has trained across many disciplines, including natural horsemanship, eventing, dressage, and trail/obstacle work. Laurie believes that clear communication between horse and rider is the key to building lasting partnerships. Her mission as a trainer — and now as our Equine Program Developer — is to continue learning and inspiring positive change within the equestrian community.","lat":37.9405,"lng":-121.9358},
+  {"id":105,"name":"Stardust Sanctuary Equine Adventures - Lessons","category":"Riding Lessons","street":"1100 Russelmann Park Rd.","city":"Clayton","state":"CA","zip":"94517","phone":"925-451-4058","email":"Laurie@StardustSanctuaryCA.org","website":"https://www.stardustsanctuaryca.org/equineprograms","description":"Laurie is the founder and owner of Team Horse Training in Clayton, California. She has trained across many disciplines, including natural horsemanship, eventing, dressage, and trail/obstacle work. Laurie believes that clear communication between horse and rider is the key to building lasting partnerships. Her mission as a trainer — and now as our Equine Program Developer — is to continue learning and inspiring positive change within the equestrian community.","lat":37.9405,"lng":-121.9358}
 ];
 
   const [searchTerm, setSearchTerm] = useState('');
@@ -183,7 +183,7 @@ const EquestrianResources = () => {
               </svg>
               <div className="h-px w-24 bg-blue-400"></div>
             </div>
-            <p className="text-white text-lg">Your comprehensive directory of Bay Area equestrian facilities and events</p>
+            <p className="text-white text-lg">Your comprehensive directory of Bay Area equestrian facilities and services</p>
             <p className="text-blue-200 mt-2 font-semibold text-lg">{resources.length} Resources Available</p>
           </div>
         </div>
@@ -279,80 +279,7 @@ const EquestrianResources = () => {
             <p className="text-center text-gray-500 py-8">No resources found matching your filters.</p>
           )}
         </div>
-        
-        {/* Footer */}
-        <div className="mt-8 text-center pb-4">
-          <button
-            onClick={() => setShowDisclaimer(true)}
-            className="text-blue-700 hover:text-blue-900 underline font-semibold"
-          >
-            Disclaimer
-          </button>
-          <p className="text-gray-600 text-sm mt-2">© 2026 Diablo Equestrian Heritage Association</p>
-        </div>
       </div>
-      
-      {/* Disclaimer Modal */}
-      {showDisclaimer && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg shadow-2xl max-w-3xl max-h-[90vh] overflow-y-auto">
-            <div className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Disclaimer and Terms of Use</h2>
-              
-              <div className="space-y-4 text-gray-700">
-                <div>
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">Information Provided "As Is"</h3>
-                  <p>The Diablo Equestrian Heritage Association (DEHA) provides this directory as a community resource for informational purposes only. DEHA does not endorse, recommend, or guarantee the quality, safety, reliability, or accuracy of any businesses, services, or individuals listed in this directory.</p>
-                </div>
-                
-                <div>
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">No Liability</h3>
-                  <p>DEHA makes no warranties or representations about the accuracy or completeness of the information provided. Use of any services listed is at your own risk. DEHA shall not be liable for any damages, injuries, losses, or claims arising from:</p>
-                  <ul className="list-disc ml-6 mt-2 space-y-1">
-                    <li>Use of any listed services or businesses</li>
-                    <li>Errors or omissions in the directory</li>
-                    <li>Outdated or incorrect information</li>
-                    <li>Actions or omissions of listed service providers</li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">User Responsibility</h3>
-                  <p>Users are solely responsible for:</p>
-                  <ul className="list-disc ml-6 mt-2 space-y-1">
-                    <li>Verifying credentials, licenses, and insurance of service providers</li>
-                    <li>Conducting their own due diligence before engaging any services</li>
-                    <li>Making informed decisions about equestrian services and care</li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">No Endorsement</h3>
-                  <p>Inclusion in this directory does not constitute an endorsement or recommendation by DEHA. DEHA is not responsible for the business practices, quality of services, or actions of any listed parties.</p>
-                </div>
-                
-                <div>
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">Changes and Updates</h3>
-                  <p>Information may be outdated. Users should verify current contact information and service availability directly with providers.</p>
-                </div>
-                
-                <div className="pt-4 border-t border-gray-300">
-                  <p className="italic">By using this directory, you acknowledge and accept these terms.</p>
-                </div>
-              </div>
-              
-              <div className="mt-6 flex justify-end">
-                <button
-                  onClick={() => setShowDisclaimer(false)}
-                  className="px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 font-semibold"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
